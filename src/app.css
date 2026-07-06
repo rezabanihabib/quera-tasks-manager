@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* fonts */
+@font-face {
+  font-family: "Vazirmatn";
+  src:
+    url(../src/assets/fonts/vazirmatn/Vazirmatn[wght].woff2)
+      format("woff2 supports variations"),
+    url(../src/assets/fonts/vazirmatn/Vazirmatn[wght].woff2)
+      format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.farsi_digits {
+  font-feature-settings: "ss01";
+}
+
+@theme {
+  --font-Vazirmatn: Vazirmatn, system-ui, sans-serif;
+
+  /* background */
+  --color-background-light: #f9f9f9;
+  --color-background-dark: #060c18;
+
+  /* card */
+  --color-card-light: #ffffff;
+  --color-card-dark: #091120;
+
+  /* primary */
+  --color-primary-light: #007bff;
+  --color-primary-dark: #002247;
+  /* success */
+  --color-success: #11a483;
+  --color-background-success: #c3fff1;
+  --color-background-success-dark: #233332;
+  /* warning */
+  --color-warning: #ffaf37;
+  --color-background-warning: #ffefd6;
+  --color-background-warning-dark: #302f2d;
+  /* danger */
+  --color-danger: #ff5f37;
+  --color-background-danger: #ffe2db;
+  --color-background-danger-dark: #3d2327;
+}
