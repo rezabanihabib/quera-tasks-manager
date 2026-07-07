@@ -45,8 +45,153 @@
       </div>
     </header>
     <!-- HEADER -->
+    <div class="md:hidden mt-8 mb-6 px-6 dark:text-white">
+      <div class="flex items-center justify-center gap-3">
+        <img
+          src="./src/picture/Ellipse 136.png"
+          alt=""
+          class="w-12 h-12 rounded-full"
+        />
 
+        <div class="text-right mr-3">
+          <h3 class="font-bold text-base">سلام، سارا</h3>
+          <p id="current-date-mobile" class="text-xs text-gray-500"></p>
+        </div>
+      </div>
+    </div>
     <!-- SIDEBAR -->
+    <div
+      id="sidebar-overlay"
+      class="fixed inset-0 bg-black/40 opacity-0 invisible transition-all duration-300 z-40 md:hidden"
+    ></div>
+
+    <aside
+      id="sidebar"
+      class="fixed top-0 right-0 h-screen w-72 bg-card-light dark:bg-card-dark shadow-xl translate-x-full transition-transform duration-300 z-50 md:translate-x-0 md:top-4 md:right-4 md:h-[calc(100vh-2rem)] md:w-80 md:rounded-2xl"
+    >
+      <div class="h-full flex flex-col p-6">
+        <div
+          class="hidden md:flex items-center justify-between bg-card-light dark:bg-card-dark rounded-t-2xl px-5 py-5 border-b"
+        ></div>
+        <div
+          class="flex items-center justify-between md:hidden dark:text-white"
+        >
+          <button id="close-sidebar" class="text-2xl">&times;</button>
+
+          <h2 class="font-bold">کوئرا لیست</h2>
+        </div>
+
+        <div
+          class="flex md:block items-center justify-between mt-8 mb-6 dark:text-white"
+        >
+          <div class="flex items-center gap-3">
+            <img
+              src="./src/picture/Ellipse 136.png"
+              class="w-12 h-12 rounded-full"
+              alt=""
+            />
+
+            <div>
+              <h3 class="font-bold text-sm mr-3">سلام،سارا</h3>
+              <p
+                id="current-date-desktop"
+                class="text-xs text-gray-500 mr-3"
+              ></p>
+            </div>
+          </div>
+        </div>
+        <nav class="mt-10 flex flex-col gap-2 dark:text-white">
+          <a
+            href="#"
+            class="flex flex-row-reverse items-center justify-end rounded-lg px-4 py-3 hover:bg-gray-200 dark:hover:bg-zinc-800"
+          >
+            <span class="mr-3 text-blue-500 dark:text-white">خانه</span>
+            <img src="./src/picture/khane.png" alt="home" class="w-5 h-5" />
+          </a>
+
+          <a
+            href="#"
+            class="flex flex-row-reverse items-center justify-end rounded-lg px-4 py-3 hover:bg-gray-100 dark:hover:bg-zinc-800"
+          >
+            <span class="mr-3">تسک‌ها</span>
+            <img src="./src/picture/task-square.png" class="w-5 h-5" />
+          </a>
+
+          <a
+            href="#"
+            class="flex flex-row-reverse items-center justify-end rounded-lg px-4 py-3 hover:bg-gray-100 dark:hover:bg-zinc-800"
+          >
+            <span class="mr-3">تقویم</span>
+            <img src="src/picture/calendar.png" alt="calendar" />
+          </a>
+
+          <a
+            href="#"
+            class="flex flex-row-reverse items-center justify-end rounded-lg px-4 py-3 hover:bg-gray-100 dark:hover:bg-zinc-800"
+          >
+            <span class="mr-3">گزارشات</span>
+            <img src="src/picture/arrange-square-2.png" alt="" />
+          </a>
+
+          <a
+            href="#"
+            class="flex flex-row-reverse items-center justify-end rounded-lg px-4 py-3 hover:bg-gray-100 dark:hover:bg-zinc-800"
+          >
+            <span class="mr-3">تنضیمات</span>
+            <img src="src/picture/setting.png" alt="setting" class="w-5 h-5" />
+          </a>
+
+          <a
+            href="#"
+            class="flex flex-row-reverse items-center justify-end rounded-lg px-4 py-3 hover:bg-gray-100 dark:hover:bg-zinc-800"
+          >
+            <span class="mr-3">پشتیبانی</span>
+            <img src="src/picture/24-support.png" alt="support" />
+          </a>
+
+          <a
+            href="#"
+            class="flex flex-row-reverse items-center justify-end rounded-lg px-4 py-3 hover:bg-gray-100 dark:hover:bg-zinc-800"
+          >
+            <span class="mr-3">پروفایل</span>
+            <img src="src/picture/profile.png" alt="profile" />
+          </a>
+        </nav>
+
+        <div class="mt-auto">
+          <div
+            class="flex items-center bg-[#F5F5F5] dark:bg-[#2B2B2B] rounded-xl p-1 mb-6"
+          >
+            <button
+              id="light-btn"
+              class="flex-1 flex items-center justify-center gap-2 bg-white dark:bg-zinc-700 rounded-lg py-2 text-sm shadow-sm"
+            >
+              <img
+                src="./src/picture/sun.png"
+                class="w-4 h-4 dark:text-gray-400"
+                alt="sun"
+              />
+              روشن
+            </button>
+
+            <button
+              id="dark-btn"
+              class="flex-1 flex items-center justify-center gap-2 rounded-lg py-2 text-sm text-gray-500"
+            >
+              <img src="./src/picture/moon.png" class="w-4 h-4" alt="moon" />
+              تاریک
+            </button>
+          </div>
+          <hr class="border-bs-gray-400" />
+          <button
+            class="w-full mt-3 flex-1 flex items-center justify-end flex-row-reverse gap-2 hover:bg-gray-100 dark:hover:bg-zinc-800"
+          >
+            <img src="src/picture/logout.png" alt="log out" class="w-4 h-4" />
+            خروج
+          </button>
+        </div>
+      </div>
+    </aside>
     <!-- SIDEBAR -->
 
     <!-- USER SECTION -->
