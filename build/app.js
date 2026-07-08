@@ -65,3 +65,24 @@ darkBtn.addEventListener("click", () => setTheme("dark"));
 
   setTheme(savedTheme);
 })();
+
+// show today date
+const today = new Date();
+
+const formatter = new Intl.DateTimeFormat("fa-IR", {
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
+const currentDate = formatter.format(today);
+
+
+let currentDateEl = document.getElementById("user-profile-current-date");
+let currentDateSidebarEl = document.getElementById(
+  "sidebar-user-profile-current-date",
+);
+
+currentDateEl.innerText = "امروز، " + currentDate;
+currentDateSidebarEl.innerText =  currentDate;
