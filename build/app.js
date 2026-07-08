@@ -23,3 +23,45 @@ function closeSidebar() {
   sidebar.classList.remove("translate-x-0");
   overlay.classList.remove("opacity-100", "visible");
 }
+
+// theme toggle
+const lightBtn = document.getElementById("light-btn");
+const darkBtn = document.getElementById("dark-btn");
+
+function setTheme(theme) {
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+    localStorage.theme = "dark";
+  } else {
+    document.documentElement.classList.remove("dark");
+    localStorage.theme = "light";
+  }
+
+  updateButtons(theme);
+}
+
+function updateButtons(theme) {
+  if (theme === "dark") {
+    darkBtn.classList.add("bg-white", "dark:bg-zinc-700", "shadow-sm");
+    lightBtn.classList.remove("bg-white", "dark:bg-zinc-700", "shadow-sm");
+  } else {
+    lightBtn.classList.add("bg-white", "dark:bg-zinc-700", "shadow-sm");
+    darkBtn.classList.remove("bg-white", "dark:bg-zinc-700", "shadow-sm");
+  }
+}
+
+// click events
+lightBtn.addEventListener("click", () => setTheme("light"));
+darkBtn.addEventListener("click", () => setTheme("dark"));
+
+(function initTheme() {
+  let savedTheme = localStorage.theme;
+
+  if (!savedTheme) {
+    savedTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
+
+  setTheme(savedTheme);
+})();
