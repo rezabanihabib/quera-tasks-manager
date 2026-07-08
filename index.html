@@ -67,16 +67,21 @@
         <div
           class="task bg-background-light dark:bg-background-dark py-3 px-4 flex items-start w-full border border-neutral-200 relative rounded-xl gap-4"
         >
-          <span class="bg-amber-400 w-1 rounded-e-lg h-4/5 py-2 absolute inset-s-0"></span>
-          <div class="">
-            <input type="checkbox" name="" id="" />
-          </div>
+          <span
+            class="bg-amber-400 w-1 rounded-e-lg h-4/5 py-2 absolute inset-s-0"
+          ></span>
+          <input
+            type="checkbox"
+            class="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-blue-500 checked:border-blue-500"
+          />
           <div class="grow">
-            <div>
-              <p>جلسه با مدیران</p>
+            <div class="flex flex-col md:flex-row gap-1">
+              <p class="text-sm font-semibold">جلسه با مدیران</p>
               <span>بالا</span>
             </div>
-            <p>جلسه با محسن یگانه و مریم جلالی</p>
+            <p class="text-xs text-[#7D7D7F]">
+              جلسه با محسن یگانه و مریم جلالی
+            </p>
           </div>
           <div>
             <button type="button">
