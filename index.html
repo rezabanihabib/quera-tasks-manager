@@ -185,133 +185,6 @@
             </svg>
             <!-- TODO: CHANGE TO SVG -->
           </a>
-
-    <!-- CREATE TASK FORM -->
-    <section id="taks-form" class="w-full my-8 px-4">
-      <div
-        class="w-full rounded-2xl border border-neutral-200 shadow-[0px_4px_58.5px_0px_#0000000F]; bg-card-light dark:bg-card-dark"
-      >
-        <form action="#" method="get" class="">
-          <div class="p-4">
-            <input
-              name="task-title"
-              id="task-title-input"
-              type="text"
-              class="w-full focus:outline-0 font-semibold placeholder:text-[#7D7D7F] text-[#323233]"
-              placeholder="نام تسک"
-            />
-            <textarea
-              name="task-desc"
-              id="task-desc-input"
-              placeholder="توضیحات"
-              class="text-sm placeholder:text-[#AFAEB2] mt-3 w-full focus:outline-0 text-[#646466]"
-              rows="3"
-            ></textarea>
-            <button
-              id="tags-btn"
-              class="py-1 px-2 border-neutral-200 text-[#AFAEB2] font-semibold text-xs flex items-center justify-center gap-1 border rounded-sm"
-              type="button"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class="mb-0.5"
-              >
-                <path
-                  d="M2.81407 2.06665H10.4407C10.8941 2.06665 11.4607 2.37998 11.7007 2.76665L14.4874 7.21998C14.7541 7.65332 14.7274 8.33332 14.4208 8.73998L10.9674 13.34C10.7208 13.6667 10.1874 13.9333 9.78075 13.9333H2.81407C1.6474 13.9333 0.940768 12.6533 1.5541 11.66L3.40074 8.70665C3.64741 8.31332 3.64741 7.67332 3.40074 7.27998L1.5541 4.32665C0.940768 3.34665 1.65407 2.06665 2.81407 2.06665Z"
-                  stroke="#AFAEB2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              تگ ها
-            </button>
-
-            <button class="flex justify-center items-center bg-background-danger text-danger gap-0.5 rounded-sm px-2 py-1 text-sm font-semibold mt-2">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4 4L8 8M8 8L12 12M8 8L12 4M8 8L4 12"
-                  stroke="#1A1A1A"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              بالا
-            </button>
-
-            <div
-              class="border border-neutral-200 p-2.5 rounded-lg bg-light dark:bg-background-dark flex items-center justify-center divide-x divide-neutral-200 shadow-[0px_12px_24px_-6px_#1414190F] w-50 my-5"
-            >
-              <div class="w-full px-2">
-                <button
-                  type="button"
-                  id="low-tag"
-                  class="py-1 px-2 bg-background-success text-success rounded-sm text-xs font-bold w-full"
-                >
-                  پایین
-                </button>
-              </div>
-              <div class="w-full px-2">
-                <button
-                  type="button"
-                  id="normal-tag"
-                  class="py-1 px-2 bg-background-warning text-warning rounded-sm text-xs font-bold w-full"
-                >
-                  متوسط
-                </button>
-              </div>
-              <div class="w-full px-2">
-                <button
-                  type="button"
-                  id="high-tag"
-                  class="py-1 px-2 bg-background-danger text-danger rounded-sm text-xs font-bold w-full"
-                >
-                  بالا
-                </button>
-              </div>
-            </div>
-          </div>
-          <div
-            class="border-t border-neutral-200 flex items-stretch justify-end gap-1 p-4"
-          >
-            <button type="button" class="bg-neutral-200 p-1.5 rounded-md">
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 22 22"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5.5 5.5L11 11M11 11L16.5 16.5M11 11L16.5 5.5M11 11L5.5 16.5"
-                  stroke="#9E9E9E"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-            <button
-              type="submit"
-              class="py-2.5 px-4 bg-primary-light text-white rounded-md font-semibold text-xs"
-            >
-              اضافه کردن تسک
-            </button>
-          </div>
-        </form>
-      </div>
-    </section>
-    <!-- CREATE TASK FORM -->
           <a
             href="#"
             class="flex flex-row-reverse items-center justify-end rounded-lg px-4 py-3 hover:bg-gray-100 dark:hover:bg-zinc-800"
@@ -721,6 +594,132 @@
           <!-- CREATE TASK BTN -->
 
           <!-- CREATE TASK FORM -->
+          <section id="taks-form" class="w-full my-8 px-4">
+            <div
+              class="w-full rounded-2xl border border-neutral-200 shadow-[0px_4px_58.5px_0px_#0000000F]; bg-card-light dark:bg-card-dark"
+            >
+              <form action="#" method="get" class="">
+                <div class="p-4">
+                  <input
+                    name="task-title"
+                    id="task-title-input"
+                    type="text"
+                    class="w-full focus:outline-0 font-semibold placeholder:text-[#7D7D7F] text-[#323233]"
+                    placeholder="نام تسک"
+                  />
+                  <textarea
+                    name="task-desc"
+                    id="task-desc-input"
+                    placeholder="توضیحات"
+                    class="text-sm placeholder:text-[#AFAEB2] mt-3 w-full focus:outline-0 text-[#646466]"
+                    rows="3"
+                  ></textarea>
+                  <button
+                    id="tags-btn"
+                    class="py-1 px-2 border-neutral-200 text-[#AFAEB2] font-semibold text-xs flex items-center justify-center gap-1 border rounded-sm"
+                    type="button"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="mb-0.5"
+                    >
+                      <path
+                        d="M2.81407 2.06665H10.4407C10.8941 2.06665 11.4607 2.37998 11.7007 2.76665L14.4874 7.21998C14.7541 7.65332 14.7274 8.33332 14.4208 8.73998L10.9674 13.34C10.7208 13.6667 10.1874 13.9333 9.78075 13.9333H2.81407C1.6474 13.9333 0.940768 12.6533 1.5541 11.66L3.40074 8.70665C3.64741 8.31332 3.64741 7.67332 3.40074 7.27998L1.5541 4.32665C0.940768 3.34665 1.65407 2.06665 2.81407 2.06665Z"
+                        stroke="#AFAEB2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    تگ ها
+                  </button>
+
+                  <button
+                    class="flex justify-center items-center bg-background-danger text-danger gap-0.5 rounded-sm px-2 py-1 text-sm font-semibold mt-2"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4 4L8 8M8 8L12 12M8 8L12 4M8 8L4 12"
+                        stroke="#1A1A1A"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    بالا
+                  </button>
+
+                  <div
+                    class="border border-neutral-200 p-2.5 rounded-lg bg-light dark:bg-background-dark flex items-center justify-center divide-x divide-neutral-200 shadow-[0px_12px_24px_-6px_#1414190F] w-50 my-5"
+                  >
+                    <div class="w-full px-2">
+                      <button
+                        type="button"
+                        id="low-tag"
+                        class="py-1 px-2 bg-background-success text-success rounded-sm text-xs font-bold w-full"
+                      >
+                        پایین
+                      </button>
+                    </div>
+                    <div class="w-full px-2">
+                      <button
+                        type="button"
+                        id="normal-tag"
+                        class="py-1 px-2 bg-background-warning text-warning rounded-sm text-xs font-bold w-full"
+                      >
+                        متوسط
+                      </button>
+                    </div>
+                    <div class="w-full px-2">
+                      <button
+                        type="button"
+                        id="high-tag"
+                        class="py-1 px-2 bg-background-danger text-danger rounded-sm text-xs font-bold w-full"
+                      >
+                        بالا
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="border-t border-neutral-200 flex items-stretch justify-end gap-1 p-4"
+                >
+                  <button type="button" class="bg-neutral-200 p-1.5 rounded-md">
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.5 5.5L11 11M11 11L16.5 16.5M11 11L16.5 5.5M11 11L5.5 16.5"
+                        stroke="#9E9E9E"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    type="submit"
+                    class="py-2.5 px-4 bg-primary-light text-white rounded-md font-semibold text-xs"
+                  >
+                    اضافه کردن تسک
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
           <!-- CREATE TASK FORM -->
 
           <!-- TASK SECTION -->
