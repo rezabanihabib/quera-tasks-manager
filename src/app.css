@@ -48,7 +48,7 @@
 }
 
 .menu-item {
-  @apply flex items-center gap-2 rounded-lg px-4 py-3 transition-all font-bold text-text-neutral-600  dark:text-white hover:text-primary-light  dark:hover:bg-primary-dark hover:bg-[#F5FAFF];
+  @apply flex items-center gap-2 rounded-lg px-4 py-3 transition-all text-text-neutral-600 text-sm font-semibold dark:text-white hover:text-primary-light  dark:hover:bg-primary-dark hover:bg-[#F5FAFF];
 }
 
 .menu-item-active {
