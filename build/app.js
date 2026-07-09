@@ -41,13 +41,8 @@ function setTheme(theme) {
 }
 
 function updateButtons(theme) {
-  if (theme === "dark") {
-    darkBtn.classList.add("bg-white", "dark:bg-zinc-700", "shadow-sm");
-    lightBtn.classList.remove("bg-white", "dark:bg-zinc-700", "shadow-sm");
-  } else {
-    lightBtn.classList.add("bg-white", "dark:bg-zinc-700", "shadow-sm");
-    darkBtn.classList.remove("bg-white", "dark:bg-zinc-700", "shadow-sm");
-  }
+  darkBtn.classList.toggle("sidebar-theme-btn-active", theme === "dark");
+  lightBtn.classList.toggle("sidebar-theme-btn-active", theme !== "dark");
 }
 
 // click events
@@ -78,11 +73,10 @@ const formatter = new Intl.DateTimeFormat("fa-IR", {
 
 const currentDate = formatter.format(today);
 
-
 let currentDateEl = document.getElementById("user-profile-current-date");
 let currentDateSidebarEl = document.getElementById(
   "sidebar-user-profile-current-date",
 );
 
 currentDateEl.innerText = "امروز، " + currentDate;
-currentDateSidebarEl.innerText =  currentDate;
+currentDateSidebarEl.innerText = currentDate;
