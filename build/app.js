@@ -42,11 +42,11 @@ function setTheme(theme) {
 
 function updateButtons(theme) {
   if (theme === "dark") {
-    darkBtn.classList.add("bg-white", "dark:bg-zinc-700", "shadow-sm");
-    lightBtn.classList.remove("bg-white", "dark:bg-zinc-700", "shadow-sm");
+    darkBtn.classList.add("sidebar-theme-btn-active");
+    lightBtn.classList.remove("sidebar-theme-btn-active");
   } else {
-    lightBtn.classList.add("bg-white", "dark:bg-zinc-700", "shadow-sm");
-    darkBtn.classList.remove("bg-white", "dark:bg-zinc-700", "shadow-sm");
+    lightBtn.classList.add("sidebar-theme-btn-active");
+    darkBtn.classList.remove("sidebar-theme-btn-active");
   }
 }
 

@@ -47,10 +47,20 @@
   --color-background-danger-dark: #3d2327;
 }
 
+/* Sidebar */
 .menu-item {
-  @apply flex items-center gap-2 rounded-lg px-4 py-3 transition-all text-text-neutral-600 text-sm font-semibold dark:text-white hover:text-primary-light  dark:hover:bg-primary-dark hover:bg-[#F5FAFF];
+  @apply flex items-center gap-2 rounded-lg px-4 py-3 transition-all text-neutral-600 text-sm font-semibold dark:text-white hover:text-primary-light  dark:hover:bg-primary-dark hover:bg-[#F5FAFF];
 }
 
 .menu-item-active {
   @apply text-primary-light dark:text-white  bg-[#F5FAFF] dark:bg-primary-dark;
 }
+
+.sidebar-theme-btn {
+  @apply flex-1 flex items-center justify-center gap-2 rounded-md py-2 text-sm  font-semibold cursor-pointer text-[#525252] dark:text-[#7A7A7A];
+}
+
+.sidebar-theme-btn-active {
+  @apply bg-card-light dark:bg-primary-dark dark:text-white;
+}
+/* Sidebar */

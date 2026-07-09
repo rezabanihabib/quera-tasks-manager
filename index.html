@@ -394,17 +394,16 @@
         </nav>
         <!-- sidebar nav -->
 
-        <div class="mt-auto">
+        <!-- sidebar settings -->
+        <div class="mt-auto border-b-gray-400 border-b">
+          <!-- sidebar theme buttons -->
           <div
-            class="flex items-center bg-[#F5F5F5] dark:bg-[#2B2B2B] rounded-xl p-1 mb-6 border-bs-gray-400"
+            class="flex items-center bg-[#F7F7F7] dark:bg-[#0C1B31] rounded-lg p-1 mb-6"
           >
-            <button
-              id="light-btn"
-              class="flex-1 flex items-center justify-center gap-2 bg-white dark:bg-zinc-700 rounded-lg py-2 text-sm shadow-sm cursor-pointer"
-            >
+            <button id="light-btn" class="sidebar-theme-btn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6 text-black dark:text-white"
+                class="stroke-current"
                 width="16"
                 height="16"
                 viewBox="0 0 16 16"
@@ -412,14 +411,12 @@
               >
                 <path
                   d="M7.99935 12.3333C10.3926 12.3333 12.3327 10.3932 12.3327 7.99996C12.3327 5.60673 10.3926 3.66663 7.99935 3.66663C5.60612 3.66663 3.66602 5.60673 3.66602 7.99996C3.66602 10.3932 5.60612 12.3333 7.99935 12.3333Z"
-                  stroke="#525252"
                   stroke-width="1.16667"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
                 <path
                   d="M12.7606 12.76L12.674 12.6734M12.674 3.32671L12.7606 3.24004L12.674 3.32671ZM3.24065 12.76L3.32732 12.6734L3.24065 12.76ZM8.00065 1.38671V1.33337V1.38671ZM8.00065 14.6667V14.6134V14.6667ZM1.38732 8.00004H1.33398H1.38732ZM14.6673 8.00004H14.614H14.6673ZM3.32732 3.32671L3.24065 3.24004L3.32732 3.32671Z"
-                  stroke="#525252"
                   stroke-width="1.55556"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -427,13 +424,10 @@
               </svg>
               روشن
             </button>
-            <button
-              id="dark-btn"
-              class="flex-1 flex items-center justify-center gap-2 rounded-lg py-2 text-sm text-gray-500 cursor-pointer"
-            >
+            <button id="dark-btn" class="sidebar-theme-btn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6 text-black dark:text-white"
+                class="stroke-current"
                 width="16"
                 height="16"
                 viewBox="0 0 16 16"
@@ -441,7 +435,6 @@
               >
                 <path
                   d="M1.35404 8.27997C1.59404 11.7133 4.50738 14.5066 7.99404 14.66C10.454 14.7666 12.654 13.62 13.974 11.8133C14.5207 11.0733 14.2274 10.58 13.314 10.7466C12.8674 10.8266 12.4074 10.86 11.9274 10.84C8.66738 10.7066 6.00071 7.97997 5.98738 4.75997C5.98071 3.89331 6.16071 3.07331 6.48738 2.32664C6.84738 1.49997 6.41404 1.10664 5.58071 1.45997C2.94071 2.57331 1.13404 5.23331 1.35404 8.27997Z"
-                  stroke="#808080"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
@@ -449,6 +442,9 @@
               تاریک
             </button>
           </div>
+          <!-- sidebar theme buttons -->
+
+          <!-- sidebar logout btn -->
           <button
             class="w-full mt-3 flex-1 flex items-center justify-end flex-row-reverse gap-2 hover:bg-gray-100 dark:hover:bg-zinc-800"
           >
@@ -493,7 +489,9 @@
             <!-- TODO: CHANGE TO SVG -->
             خروج
           </button>
+          <!-- sidebar logout btn -->
         </div>
+        <!-- sidebar settings -->
       </aside>
       <!-- SIDEBAR -->
 
