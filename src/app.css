@@ -46,3 +46,11 @@
   --color-background-danger: #ffe2db;
   --color-background-danger-dark: #3d2327;
 }
+
+.menu-item {
+  @apply flex items-center gap-2 rounded-lg px-4 py-3 transition-all font-bold text-text-neutral-600  dark:text-white hover:text-primary-light  dark:hover:bg-primary-dark hover:bg-[#F5FAFF];
+}
+
+.menu-item-active {
+  @apply text-primary-light dark:text-white  bg-[#F5FAFF] dark:bg-primary-dark;
+}
