@@ -5,10 +5,6 @@
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.3.2",
-    "@tailwindcss/oxide": "^4.3.2",
     "tailwindcss": "^4.3.2"
-  },
-  "devDependencies": {
-    "@tailwindcss/oxide-linux-x64-gnu": "^4.3.2"
   }
 }
