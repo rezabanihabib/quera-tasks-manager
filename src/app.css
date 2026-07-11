@@ -64,3 +64,19 @@
   @apply bg-card-light dark:bg-primary-dark dark:text-white;
 }
 /* Sidebar */
+
+.badge {
+  @apply py-1 px-2 rounded-sm text-xs font-bold;
+}
+
+.badge-succes {
+  @apply bg-background-success dark:bg-background-success-dark text-success;
+}
+
+.badge-danger {
+  @apply bg-background-danger dark:bg-background-danger-dark text-danger;
+}
+
+.badge-warning {
+  @apply bg-background-warning dark:bg-background-warning-dark text-warning;
+}
