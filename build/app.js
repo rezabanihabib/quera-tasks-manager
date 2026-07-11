@@ -85,7 +85,7 @@ document.getElementById("sidebar-user-profile-current-date").textContent =
 
 //open task form
 const openTaskFormBtn = document.getElementById("open-task-form");
-const taskForm = document.getElementById("task-form");
+const taskForm = document.getElementById("task-form-open");
 
 openTaskFormBtn.addEventListener("click", () => {
   taskForm.classList.remove("hidden");
