@@ -64,19 +64,21 @@ darkBtn.addEventListener("click", () => setTheme("dark"));
 // show today date
 const today = new Date();
 
-const formatter = new Intl.DateTimeFormat("fa-IR", {
+const parts = new Intl.DateTimeFormat("fa-IR", {
   weekday: "long",
   day: "numeric",
   month: "long",
   year: "numeric",
-});
+}).formatToParts(today);
 
-const currentDate = formatter.format(today);
+const weekday = parts.find((p) => p.type === "weekday").value;
+const day = parts.find((p) => p.type === "day").value;
+const month = parts.find((p) => p.type === "month").value;
+const year = parts.find((p) => p.type === "year").value;
 
-let currentDateEl = document.getElementById("user-profile-current-date");
-let currentDateSidebarEl = document.getElementById(
-  "sidebar-user-profile-current-date",
-);
+const fullDate = `${weekday}، ${day} ${month} ${year}`;
 
-currentDateEl.innerText = "امروز، " + currentDate;
-currentDateSidebarEl.innerText = currentDate;
+document.getElementById("user-profile-current-date").textContent =
+  `امروز، ${fullDate}`;
+document.getElementById("sidebar-user-profile-current-date").textContent =
+  fullDate;
