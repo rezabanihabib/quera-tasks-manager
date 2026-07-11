@@ -82,3 +82,12 @@ document.getElementById("user-profile-current-date").textContent =
   `امروز، ${fullDate}`;
 document.getElementById("sidebar-user-profile-current-date").textContent =
   fullDate;
+
+//open task form
+const openTaskFormBtn = document.getElementById("open-task-form");
+const taskForm = document.getElementById("task-form");
+
+openTaskFormBtn.addEventListener("click", () => {
+  taskForm.classList.remove("hidden");
+  openTaskFormBtn.classList.add("hidden");
+});
