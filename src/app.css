@@ -65,6 +65,7 @@
 }
 /* Sidebar */
 
+/* badge */
 .badge {
   @apply py-1 px-2 rounded-sm text-xs font-bold;
 }
@@ -80,3 +81,10 @@
 .badge-warning {
   @apply bg-background-warning dark:bg-background-warning-dark text-warning;
 }
+/* badge */
+
+/* tasks */
+.task {
+  @apply group bg-card-light dark:bg-card-dark py-3 px-4 lg:py-6 lg:px-5 flex items-start w-full border border-neutral-200 dark:border-[#3D3D3D] relative rounded-xl gap-4 mb-5 overflow-hidden cursor-pointer;
+}
+/* tasks */
