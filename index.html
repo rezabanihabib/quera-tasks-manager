@@ -732,19 +732,42 @@
           <!-- TASK SECTION -->
           <section class="w-full px-4">
             <div class="w-full">
-              <div
-                class="task group bg-card-light dark:bg-card-dark py-3 px-4 lg:py-6 lg:px-5 flex items-start w-full border border-neutral-200 dark:border-[#3D3D3D] relative rounded-xl gap-4 mb-5 overflow-hidden cursor-pointer"
-              >
+              <div class="task group">
                 <span
                   class="bg-danger w-1 rounded-e-lg h-[80%] absolute top-1/2 -translate-y-1/2 inset-s-0"
                 ></span>
 
-                <input
-                  type="checkbox"
-                  name="task"
-                  id="task-status-chckbox"
-                  class="peer cursor-pointer"
-                />
+                <label for="task-status-chckbox">
+                  <input
+                    type="checkbox"
+                    name="task"
+                    id="task-status-chckbox"
+                    class="cursor-pointer hidden"
+                  />
+
+                  <div
+                    class="w-5 h-5 border rounded relative border-[#CCCCCC] group-has-[input:checked]:bg-primary-light group-has-[input:checked]:border-none cursor-pointer"
+                  >
+                    <span
+                      class="absolute inset-0 hidden items-center justify-center group-has-[input:checked]:flex"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="3"
+                        stroke="currentColor"
+                        class="size-3 stroke-white"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="m4.5 12.75 6 6 9-13.5"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </label>
 
                 <div class="grow">
                   <div
