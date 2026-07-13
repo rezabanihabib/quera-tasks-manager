@@ -82,3 +82,65 @@ document.getElementById("user-profile-current-date").textContent =
   `امروز، ${fullDate}`;
 document.getElementById("sidebar-user-profile-current-date").textContent =
   fullDate;
+//task settings btn
+const menuButtons = document.querySelectorAll(".menu-btn");
+
+menuButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.querySelectorAll(".menu").forEach((menu) => {
+      if (menu !== button.nextElementSibling) {
+        menu.classList.add("hidden");
+      }
+    });
+    button.nextElementSibling.classList.toggle("hidden");
+  });
+});
+
+// close if click on screen
+document.addEventListener("click", () => {
+  document.querySelectorAll(".menu").forEach((menu) => {
+    menu.classList.add("hidden");
+  });
+});
+document.querySelectorAll(".menu").forEach((menu) => {
+  menu.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+});
+//delete task
+document.querySelectorAll(".delete-task").forEach((button) => {
+  button.addEventListener("click", function () {
+    this.closest(".task").remove();
+  });
+});
+//edit btn
+const editButtons = document.querySelectorAll(".edit-task");
+
+const taskForm = document.getElementById("task-form-setting");
+const titleInput = document.getElementById("task-title-input");
+const descriptionInput = document.getElementById("task-desc-input");
+
+let currentTask = null;
+
+editButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    currentTask = this.closest(".task");
+
+    const title = currentTask
+      .querySelector("p.font-semibold")
+      .textContent.trim();
+    const description = currentTask
+      .querySelector("p.text-xs")
+      .textContent.trim();
+
+    titleInput.value = title;
+    descriptionInput.value = description;
+
+    taskForm.classList.remove("hidden");
+
+    document.querySelectorAll(".menu").forEach((menu) => {
+      menu.classList.add("hidden");
+    });
+  });
+});
