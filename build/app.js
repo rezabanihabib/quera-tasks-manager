@@ -82,3 +82,63 @@ document.getElementById("user-profile-current-date").textContent =
   `امروز، ${fullDate}`;
 document.getElementById("sidebar-user-profile-current-date").textContent =
   fullDate;
+//task checkbox
+const todoList = document.querySelector("#todo-list .w-full");
+const completedList = document.querySelector("#completed-list .w-full");
+
+document.addEventListener("change", function (e) {
+  if (
+    e.target.id !== "task-status-chckbox" &&
+    e.target.id !== "task-status-chckbox-comleted"
+  ) {
+    return;
+  }
+
+  const task = e.target.closest(".task");
+
+  if (e.target.checked) {
+    completedList.appendChild(task);
+  } else {
+    todoList.appendChild(task);
+  }
+});
+//counter
+function updateCounters() {
+  const todoCount = document.querySelectorAll("#todo-list .task").length;
+
+  const completedCount = document.querySelectorAll(
+    "#completed-list .task",
+  ).length;
+
+  const todoText = document.getElementById("todo-count");
+  const completedText = document.getElementById("completed-count");
+
+  // متن تسک‌های امروز
+  const savedTodo = localStorage.getItem("todoTasks");
+
+  const savedCompleted = localStorage.getItem("completedTasks");
+
+  if (savedTodo) {
+    document.getElementById("todo-list").innerHTML = savedTodo;
+  }
+
+  if (savedCompleted) {
+    document.getElementById("completed-list").innerHTML = savedCompleted;
+  }
+  if (todoCount === 0) {
+    todoText.textContent = "تسکی برای امروز نداری!";
+  } else if (todoCount === 1) {
+    todoText.textContent = "1 تسک برای امروز";
+  } else {
+    todoText.textContent = `${todoCount} تسک برای امروز`;
+  }
+
+  // متن تسک‌های انجام شده
+  if (completedCount === 0) {
+    completedText.textContent = "هنوز تسکی انجام نشده";
+  } else if (completedCount === 1) {
+    completedText.textContent = "1 تسک انجام شده";
+  } else {
+    completedText.textContent = `${completedCount} تسک انجام شده`;
+  }
+}
