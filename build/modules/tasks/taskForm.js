@@ -60,21 +60,21 @@ function renderTaskForm({ mode = "create", task = null }) {
                         class="border dark:border-[#3D3D3D] border-neutral-200 py-2.5 rounded-lg flex items-center justify-around divide-x divide-neutral-200 dark:divide-[#3D3D3D] shadow-[0px_12px_24px_-6px_#1414190F] w-50 my-5 bg-card-light dark:bg-[#0B192D]"
                     >
                         <label class="w-full px-2.5 cursor-pointer">
-                            <input type="radio" name="priority" value="low" class="hidden peer" />
+                            <input type="radio" name="priority" value="low" class="hidden" />
                             <span class="badge badge-success w-full block text-center">
                             پایین
                             </span>
                         </label>
 
                         <label class="w-full px-2.5 cursor-pointer">
-                            <input type="radio" name="priority" value="normal" class="hidden peer" />
+                            <input type="radio" name="priority" value="normal" class="hidden" />
                             <span class="badge badge-warning w-full block text-center">
                             متوسط
                             </span>
                         </label>
 
                         <label class="w-full px-2.5 cursor-pointer">
-                            <input type="radio" name="priority" value="high" class="hidden peer" />
+                            <input type="radio" name="priority" value="high" class="hidden" />
                             <span class="badge badge-danger w-full block text-center">
                             بالا
                             </span>
