@@ -1,5 +1,6 @@
 import { toggleSidebar } from "./modules/sidebar/toggleSidebar.js";
 import { toggleTheme } from "./modules/theme/toggleTheme.js";
+import { currentDate } from "./modules/date/currentDate.js";
 
 // toggle sidebar
 toggleSidebar({
@@ -15,24 +16,8 @@ toggleTheme({
   darkBtn: document.getElementById("dark-btn"),
 }).init();
 
-// show today date
-const today = new Date();
-
-const parts = new Intl.DateTimeFormat("fa-IR", {
-  weekday: "long",
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-}).formatToParts(today);
-
-const weekday = parts.find((p) => p.type === "weekday").value;
-const day = parts.find((p) => p.type === "day").value;
-const month = parts.find((p) => p.type === "month").value;
-const year = parts.find((p) => p.type === "year").value;
-
-const fullDate = `${weekday}، ${day} ${month} ${year}`;
-
-document.getElementById("user-profile-current-date").textContent =
-  `امروز، ${fullDate}`;
-document.getElementById("sidebar-user-profile-current-date").textContent =
-  fullDate;
+// current date
+currentDate({
+  headerEl: document.getElementById("user-profile-current-date"),
+  sidebarEl: document.getElementById("sidebar-user-profile-current-date"),
+});
