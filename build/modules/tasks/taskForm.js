@@ -25,9 +25,7 @@ function renderTaskForm({ mode = "create", task = null }) {
                         placeholder="توضیحات"
                         class="text-sm placeholder:text-[#AFAEB2] mt-3 w-full focus:outline-0 text-[#646466] dark:text-[#83878F] resize-none scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-transparent pe-5"
                         rows="2"
-                    >
-                        ${task?.description ?? ""}
-                    </textarea>
+                    >${task?.description ?? ""}</textarea>
                     <!-- task description -->
 
                     <!-- task tags button -->
