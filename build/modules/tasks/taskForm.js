@@ -56,28 +56,6 @@ function renderTaskForm({ mode = "create", task = null }) {
                     </button>
                     <!-- task tags button -->
 
-                    <!-- task selected tag -->
-                    <span
-                        class="badge badge-danger flex justify-center items-center gap-1 text-sm! font-semibold! mt-2 w-fit"
-                    >
-                        <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            class="stroke-[#1A1A1A] dark:stroke-white cursor-pointer"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M4 4L8 8M8 8L12 12M8 8L12 4M8 8L4 12"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                        </svg>
-                        بالا
-                    </span>
-                    <!-- task selected tag -->
-
                     <!-- task tags -->
                     <div
                         id="tasks-form-tags"
@@ -159,6 +137,66 @@ function toggleTags(form) {
   });
 }
 
+// select tags
+function selectTag(form) {
+  const tagsContainer = form.querySelector("#tasks-form-tags");
+  const radios = tagsContainer.querySelectorAll("input[type='radio']");
+  const outputContainer = document.createElement("div");
+
+  tagsContainer.before(outputContainer);
+
+  radios.forEach((radio) => {
+    radio.addEventListener("change", () => {
+      renderSelectedTag(outputContainer, radio, tagsContainer);
+      tagsContainer.classList.replace("flex", "hidden");
+    });
+  });
+}
+
+//render tag
+function renderSelectedTag(container, radio, tagsContainer) {
+  container.innerHTML = "";
+
+  if (!radio.checked) return;
+
+  const map = {
+    low: { text: "پایین", class: "badge-success" },
+    normal: { text: "متوسط", class: "badge-warning" },
+    high: { text: "بالا", class: "badge-danger" },
+  };
+
+  const config = map[radio.value];
+
+  const span = document.createElement("span");
+  span.className = `badge ${config.class} flex items-center gap-1 mt-2 w-fit`;
+
+  span.innerHTML = `
+        <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            class="stroke-[#1A1A1A] dark:stroke-white cursor-pointer"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M4 4L8 8M8 8L12 12M8 8L12 4M8 8L4 12"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+        ${config.text}
+    `;
+
+  span.querySelector("svg").addEventListener("click", () => {
+    radio.checked = false;
+    container.innerHTML = "";
+    tagsContainer.classList.replace("hidden", "flex");
+  });
+
+  container.appendChild(span);
+}
+
 export function taskForm({
   mode = "create",
   task = null,
@@ -169,6 +207,9 @@ export function taskForm({
 
   // toggle tags
   toggleTags(form);
+
+  //select tag
+  selectTag(form);
 
   // submit
   form.addEventListener("submit", (e) => {
