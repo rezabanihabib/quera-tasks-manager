@@ -1,4 +1,4 @@
-export function renderTaskForm({ mode = "create", task = null }) {
+function renderTaskForm({ mode = "create", task = null }) {
   const wrapper = document.createElement("div");
   wrapper.innerHTML = `
     <section id="task-form" class="w-full my-8 px-4">
@@ -32,7 +32,7 @@ export function renderTaskForm({ mode = "create", task = null }) {
 
                     <!-- task tags button -->
                     <button
-                        id="tags-btn"
+                        id="tasks-form-tags-btn"
                         class="py-1 px-2 border-neutral-200 dark:border-[#3D3D3D] text-[#AFAEB2] font-semibold text-xs flex items-center justify-center gap-1 border rounded-sm cursor-pointer"
                         type="button"
                     >
@@ -80,6 +80,7 @@ export function renderTaskForm({ mode = "create", task = null }) {
 
                     <!-- task tags -->
                     <div
+                        id="tasks-form-tags"
                         class="border dark:border-[#3D3D3D] border-neutral-200 py-2.5 rounded-lg flex items-center justify-around divide-x divide-neutral-200 dark:divide-[#3D3D3D] shadow-[0px_12px_24px_-6px_#1414190F] w-50 my-5 bg-card-light dark:bg-[#0B192D]"
                     >
                         <div class="w-full px-3">
@@ -118,6 +119,7 @@ export function renderTaskForm({ mode = "create", task = null }) {
                 >
                     <button
                         type="button"
+                        id="task-form-close-btn"
                         class="bg-neutral-200 dark:bg-[#0C1B31] p-1.5 rounded-md cursor-pointer"
                     >
                         <svg
@@ -148,5 +150,10 @@ export function renderTaskForm({ mode = "create", task = null }) {
         </div>
     </section>
   `;
+
   return wrapper.firstElementChild;
+}
+
+export function taskForm({ mode = "create", task = null }) {
+  return renderTaskForm(arguments);
 }
