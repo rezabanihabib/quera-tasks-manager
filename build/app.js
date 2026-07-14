@@ -1,4 +1,5 @@
 import { toggleSidebar } from "./modules/sidebar/toggleSidebar.js";
+import { toggleTheme } from "./modules/theme/toggleTheme.js";
 
 // toggle sidebar
 toggleSidebar({
@@ -9,41 +10,10 @@ toggleSidebar({
 }).init();
 
 // theme toggle
-const lightBtn = document.getElementById("light-btn");
-const darkBtn = document.getElementById("dark-btn");
-
-function setTheme(theme) {
-  if (theme === "dark") {
-    document.documentElement.classList.add("dark");
-    localStorage.theme = "dark";
-  } else {
-    document.documentElement.classList.remove("dark");
-    localStorage.theme = "light";
-  }
-
-  updateButtons(theme);
-}
-
-function updateButtons(theme) {
-  darkBtn.classList.toggle("sidebar-theme-btn-active", theme === "dark");
-  lightBtn.classList.toggle("sidebar-theme-btn-active", theme !== "dark");
-}
-
-// click events
-lightBtn.addEventListener("click", () => setTheme("light"));
-darkBtn.addEventListener("click", () => setTheme("dark"));
-
-(function initTheme() {
-  let savedTheme = localStorage.theme;
-
-  if (!savedTheme) {
-    savedTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  }
-
-  setTheme(savedTheme);
-})();
+toggleTheme({
+  lightBtn: document.getElementById("light-btn"),
+  darkBtn: document.getElementById("dark-btn"),
+}).init();
 
 // show today date
 const today = new Date();
