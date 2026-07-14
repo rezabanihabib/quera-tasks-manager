@@ -22,11 +22,10 @@ currentDate({
   sidebarEl: document.getElementById("sidebar-user-profile-current-date"),
 });
 
-//open task form
-const openTaskFormBtn = document.getElementById("open-task-form");
-const taskForm = document.getElementById("task-form-open");
+// open task form
+const createTaskBtn = document.getElementById("create-task-btn-el");
+const taskBtnSection = document.getElementById("create-task-btn-section");
 
-openTaskFormBtn.addEventListener("click", () => {
-  taskForm.classList.remove("hidden");
-  openTaskFormBtn.classList.add("hidden");
+createTaskBtn.addEventListener("click", () => {
+  taskBtnSection.classList.add("hidden");
 });
