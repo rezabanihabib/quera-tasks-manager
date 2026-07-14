@@ -42,7 +42,7 @@ function renderTaskForm({ mode = "create", task = null }) {
                             viewBox="0 0 16 16"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
-                            class="mb-0.5"
+                            class="mb-0.5 transition-all"
                         >
                             <path
                                 d="M2.81407 2.06665H10.4407C10.8941 2.06665 11.4607 2.37998 11.7007 2.76665L14.4874 7.21998C14.7541 7.65332 14.7274 8.33332 14.4208 8.73998L10.9674 13.34C10.7208 13.6667 10.1874 13.9333 9.78075 13.9333H2.81407C1.6474 13.9333 0.940768 12.6533 1.5541 11.66L3.40074 8.70665C3.64741 8.31332 3.64741 7.67332 3.40074 7.27998L1.5541 4.32665C0.940768 3.34665 1.65407 2.06665 2.81407 2.06665Z"
@@ -81,7 +81,7 @@ function renderTaskForm({ mode = "create", task = null }) {
                     <!-- task tags -->
                     <div
                         id="tasks-form-tags"
-                        class="border dark:border-[#3D3D3D] border-neutral-200 py-2.5 rounded-lg flex items-center justify-around divide-x divide-neutral-200 dark:divide-[#3D3D3D] shadow-[0px_12px_24px_-6px_#1414190F] w-50 my-5 bg-card-light dark:bg-[#0B192D]"
+                        class="border dark:border-[#3D3D3D] border-neutral-200 py-2.5 rounded-lg flex items-center justify-around divide-x divide-neutral-200 dark:divide-[#3D3D3D] shadow-[0px_12px_24px_-6px_#1414190F] w-50 my-5 bg-card-light dark:bg-[#0B192D] hidden"
                     >
                         <div class="w-full px-3">
                             <button
@@ -154,6 +154,18 @@ function renderTaskForm({ mode = "create", task = null }) {
   return wrapper.firstElementChild;
 }
 
+//toggle tags
+function toggleTags(form) {
+  const tagsBtn = form.querySelector("#tasks-form-tags-btn");
+  const tags = form.querySelector("#tasks-form-tags");
+  const icon = tagsBtn.querySelector("svg");
+  tagsBtn.addEventListener("click", () => {
+    tags.classList.toggle("hidden");
+    icon.classList.toggle("rotate-90");
+    icon.classList.toggle("fill-gray-400");
+  });
+}
+
 export function taskForm({
   mode = "create",
   task = null,
@@ -162,6 +174,8 @@ export function taskForm({
 }) {
   const form = renderTaskForm({ mode, task });
 
+  // toggle tags
+  toggleTags(form);
 
   // submit
   form.addEventListener("submit", (e) => {
