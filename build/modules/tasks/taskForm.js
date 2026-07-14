@@ -42,7 +42,7 @@ function renderTaskForm({ mode = "create", task = null }) {
                             viewBox="0 0 16 16"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
-                            class="mb-0.5 transition-all"
+                            class="mb-0.5 transition-all rotate-90 fill-gray-400"
                         >
                             <path
                                 d="M2.81407 2.06665H10.4407C10.8941 2.06665 11.4607 2.37998 11.7007 2.76665L14.4874 7.21998C14.7541 7.65332 14.7274 8.33332 14.4208 8.73998L10.9674 13.34C10.7208 13.6667 10.1874 13.9333 9.78075 13.9333H2.81407C1.6474 13.9333 0.940768 12.6533 1.5541 11.66L3.40074 8.70665C3.64741 8.31332 3.64741 7.67332 3.40074 7.27998L1.5541 4.32665C0.940768 3.34665 1.65407 2.06665 2.81407 2.06665Z"
@@ -140,6 +140,7 @@ function toggleTags(form) {
 // select tags
 function selectTag(form) {
   const tagsContainer = form.querySelector("#tasks-form-tags");
+  const tagsBtn = form.querySelector("#tasks-form-tags-btn");
   const radios = tagsContainer.querySelectorAll("input[type='radio']");
   const outputContainer = document.createElement("div");
 
@@ -147,14 +148,15 @@ function selectTag(form) {
 
   radios.forEach((radio) => {
     radio.addEventListener("change", () => {
-      renderSelectedTag(outputContainer, radio, tagsContainer);
+      renderSelectedTag(outputContainer, radio, tagsContainer, tagsBtn);
       tagsContainer.classList.replace("flex", "hidden");
+      tagsBtn.classList.add("hidden");
     });
   });
 }
 
 //render tag
-function renderSelectedTag(container, radio, tagsContainer) {
+function renderSelectedTag(container, radio, tagsContainer, tagsBtn) {
   container.innerHTML = "";
 
   if (!radio.checked) return;
@@ -192,6 +194,7 @@ function renderSelectedTag(container, radio, tagsContainer) {
     radio.checked = false;
     container.innerHTML = "";
     tagsContainer.classList.replace("hidden", "flex");
+    tagsBtn.classList.remove("hidden");
   });
 
   container.appendChild(span);
