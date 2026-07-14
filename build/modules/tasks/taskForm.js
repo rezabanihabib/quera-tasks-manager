@@ -119,7 +119,7 @@ function renderTaskForm({ mode = "create", task = null }) {
                 >
                     <button
                         type="button"
-                        id="task-form-close-btn"
+                        id="tasks-form-close-btn"
                         class="bg-neutral-200 dark:bg-[#0C1B31] p-1.5 rounded-md cursor-pointer"
                     >
                         <svg
@@ -154,6 +154,18 @@ function renderTaskForm({ mode = "create", task = null }) {
   return wrapper.firstElementChild;
 }
 
-export function taskForm({ mode = "create", task = null }) {
-  return renderTaskForm(arguments);
+export function taskForm({
+  mode = "create",
+  task = null,
+  onSubmitForm,
+  onCloseForm,
+}) {
+  const form = renderTaskForm({ mode, task });
+
+  //close
+  form.querySelector("#tasks-form-close-btn").addEventListener("click", () => {
+    onCloseForm?.(form);
+  });
+
+  return form;
 }

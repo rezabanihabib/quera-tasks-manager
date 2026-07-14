@@ -34,6 +34,10 @@ createTaskBtn.addEventListener("click", () => {
   taskBtnSection.after(
     taskForm({
       mode: "create",
+      onCloseForm(form) {
+        form.remove();
+        taskBtnSection.classList.remove("hidden");
+      },
     }),
   );
 });
