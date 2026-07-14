@@ -3,6 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        const theme = localStorage.theme;
+        const isDark =
+          theme === "dark" ||
+          (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+        if (isDark) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
     <link href="./build/app.css" rel="stylesheet" />
   </head>
   <body class="bg-background-light dark:bg-background-dark font-Vazirmatn">
@@ -51,7 +65,7 @@
       <!-- sidebar overlay -->
       <div
         id="sidebar-overlay"
-        class="fixed inset-0 bg-black/40 opacity-0 invisible transition-all duration-300 z-40 lg:hidden"
+        class="fixed inset-0 bg-black/40 opacity-0 hidden lg:hidden transition-all duration-300 z-40"
       ></div>
       <!-- sidebar overlay -->
       <aside
@@ -515,14 +529,14 @@
           <!-- USER SECTION -->
 
           <!-- TITLE SECTION -->
-          <section class="w-full mt-10 lg:mt-0 px-4">
+          <section class="w-full mt-10 mb-5 lg:mt-0 px-4">
             <h2
               class="lg:text-xl font-extrabold text-[#242424] dark:text-[#FFFFFF]"
             >
               تسک‌های امروز
             </h2>
             <p
-              class="text-xs lg:text-sm font-normal lg:font-extrabold text-[#696969] dark:text-[#848890]"
+              class="text-xs lg:text-sm mt-1 font-normal lg:font-extrabold text-[#696969] dark:text-[#848890] farsi_digits"
             >
               تسکی برای امروز نداری!
             </p>
@@ -590,10 +604,11 @@
           <!-- CREATE TASK FORM -->
           <section id="taks-form" class="w-full my-8 px-4">
             <div
-              class="w-full rounded-2xl border border-neutral-200 shadow-[0px_4px_58.5px_0px_#0000000F]; bg-card-light dark:bg-background-dark dark:border-[#3D3D3D] dark:shadow-[0px_4px_58.5px_0px_#0000000F]"
+              class="w-full rounded-2xl border border-neutral-200 shadow-[0px_4px_58.5px_0px_#0000000F]; bg-card-light dark:bg-background-dark dark:border-[#3D3D3D]"
             >
               <form action="#" method="get" class="">
                 <div class="p-4">
+                  <!-- task title -->
                   <input
                     name="task-title"
                     id="task-title-input"
@@ -601,16 +616,22 @@
                     class="w-full focus:outline-0 font-semibold placeholder:text-[#7D7D7F] text-[#323233] dark:text-white"
                     placeholder="نام تسک"
                   />
+                  <!-- task title -->
+
+                  <!-- task description -->
                   <textarea
                     name="task-desc"
                     id="task-desc-input"
                     placeholder="توضیحات"
-                    class="text-sm placeholder:text-[#AFAEB2] mt-3 w-full focus:outline-0 text-[#646466] dark:text-[#83878F]"
-                    rows="3"
+                    class="text-sm placeholder:text-[#AFAEB2] mt-3 w-full focus:outline-0 text-[#646466] dark:text-[#83878F] resize-none scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-transparent pe-5"
+                    rows="2"
                   ></textarea>
+                  <!-- task description -->
+
+                  <!-- task tags button -->
                   <button
                     id="tags-btn"
-                    class="py-1 px-2 border-neutral-200 text-[#AFAEB2] font-semibold text-xs flex items-center justify-center gap-1 border rounded-sm"
+                    class="py-1 px-2 border-neutral-200 dark:border-[#3D3D3D] text-[#AFAEB2] font-semibold text-xs flex items-center justify-center gap-1 border rounded-sm cursor-pointer"
                     type="button"
                   >
                     <svg
@@ -631,63 +652,72 @@
                     </svg>
                     تگ ها
                   </button>
+                  <!-- task tags button -->
 
-                  <button
-                    class="flex justify-center items-center bg-background-danger text-danger gap-0.5 rounded-sm px-2 py-1 text-sm font-semibold mt-2"
+                  <!-- task selected tag -->
+                  <span
+                    class="badge badge-danger flex justify-center items-center gap-1 text-sm! font-semibold! mt-2 w-fit"
                   >
                     <svg
                       width="16"
                       height="16"
                       viewBox="0 0 16 16"
                       fill="none"
+                      class="stroke-[#1A1A1A] dark:stroke-white cursor-pointer"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M4 4L8 8M8 8L12 12M8 8L12 4M8 8L4 12"
-                        stroke="#1A1A1A"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                       />
                     </svg>
                     بالا
-                  </button>
+                  </span>
+                  <!-- task selected tag -->
 
+                  <!-- task tags -->
                   <div
-                    class="border border-neutral-200 p-2.5 rounded-lg bg-light dark:bg-background-dark flex items-center justify-center divide-x divide-neutral-200 shadow-[0px_12px_24px_-6px_#1414190F] w-50 my-5"
+                    class="border dark:border-[#3D3D3D] border-neutral-200 py-2.5 rounded-lg flex items-center justify-around divide-x divide-neutral-200 dark:divide-[#3D3D3D] shadow-[0px_12px_24px_-6px_#1414190F] w-50 my-5 bg-card-light dark:bg-[#0B192D]"
                   >
-                    <div class="w-full px-2">
+                    <div class="w-full px-3">
                       <button
                         type="button"
                         id="low-tag"
-                        class="py-1 px-2 bg-background-success text-success rounded-sm text-xs font-bold w-full"
+                        class="badge badge-success w-full cursor-pointer"
                       >
                         پایین
                       </button>
                     </div>
-                    <div class="w-full px-2">
+                    <div class="w-full px-3">
                       <button
                         type="button"
                         id="normal-tag"
-                        class="py-1 px-2 bg-background-warning text-warning rounded-sm text-xs font-bold w-full"
+                        class="badge badge-warning w-full cursor-pointer"
                       >
                         متوسط
                       </button>
                     </div>
-                    <div class="w-full px-2">
+                    <div class="w-full px-3">
                       <button
                         type="button"
                         id="high-tag"
-                        class="py-1 px-2 bg-background-danger text-danger rounded-sm text-xs font-bold w-full"
+                        class="badge badge-danger w-full cursor-pointer"
                       >
                         بالا
                       </button>
                     </div>
                   </div>
+                  <!-- task tags -->
                 </div>
+                <!-- task footer -->
                 <div
-                  class="border-t border-neutral-200 flex items-stretch justify-end gap-1 p-4"
+                  class="border-t border-neutral-200 dark:border-[#3D3D3D] flex items-stretch justify-end gap-1 p-4"
                 >
-                  <button type="button" class="bg-neutral-200 p-1.5 rounded-md">
+                  <button
+                    type="button"
+                    class="bg-neutral-200 dark:bg-[#0C1B31] p-1.5 rounded-md cursor-pointer"
+                  >
                     <svg
                       width="22"
                       height="22"
@@ -706,11 +736,12 @@
                   </button>
                   <button
                     type="submit"
-                    class="py-2.5 px-4 bg-primary-light text-white rounded-md font-semibold text-xs"
+                    class="py-2.5 px-4 bg-primary-light dark:bg-primary-dark text-white rounded-md font-semibold text-xs cursor-pointer"
                   >
                     اضافه کردن تسک
                   </button>
                 </div>
+                <!-- task footer -->
               </form>
             </div>
           </section>
@@ -718,159 +749,190 @@
 
           <!-- TASK SECTION -->
           <section class="w-full px-4">
-            <div class="w-full mb-5">
-              <div
-                class="task bg-background-light dark:bg-card-dark py-3 px-4 flex items-start w-full border border-neutral-200 relative rounded-xl gap-4"
-              >
+            <div class="w-full">
+              <div class="task group">
                 <span
-                  class="bg-warning w-1 rounded-e-lg h-4/5 py-2 absolute top-1.5 inset-s-0"
+                  class="bg-danger w-1 rounded-e-lg h-[80%] absolute top-1/2 -translate-y-1/2 inset-s-0"
                 ></span>
 
-                <input
-                  type="checkbox"
-                  name="task"
-                  id="task-status-chckbox"
-                  class="peer"
-                />
+                <label for="task-status-chckbox">
+                  <input
+                    type="checkbox"
+                    name="task"
+                    id="task-status-chckbox"
+                    class="cursor-pointer hidden"
+                  />
+
+                  <div
+                    class="w-5 h-5 border rounded relative border-[#CCCCCC] group-has-[input:checked]:bg-primary-light group-has-[input:checked]:border-none cursor-pointer"
+                  >
+                    <span
+                      class="absolute inset-0 hidden items-center justify-center group-has-[input:checked]:flex"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="3"
+                        stroke="currentColor"
+                        class="size-3 stroke-white"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="m4.5 12.75 6 6 9-13.5"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </label>
 
                 <div class="grow">
                   <div
-                    class="flex flex-col md:flex-row gap-1 items-start justify-start"
+                    class="flex flex-col md:flex-row gap-2 items-start justify-start"
                   >
                     <p
-                      class="text-sm font-semibold dark:text-white peer-has-checked:overline"
+                      class="text-sm lg:text-base font-semibold dark:text-white group-has-[input:checked]:line-through"
                     >
                       جلسه با مدیران
                     </p>
 
                     <span
-                      class="py-0.5 px-2 bg-background-danger text-danger rounded-sm text-xs font-bold peer-checked:hidden"
+                      class="badge badge-danger group-has-[input:checked]:hidden"
                     >
                       بالا
                     </span>
                   </div>
 
-                  <p class="text-xs text-[#7D7D7F] mt-2 peer-checked:hidden">
-                    جلسه با محسن یگانه و مریم جلالی
-                  </p>
-                </div>
-
-                <div>
-                  <button type="button" class="cursor-pointer">
-                    <svg width="4" height="18" viewBox="0 0 4 18" fill="none">
-                      <circle cx="2" cy="2" r="2" fill="#525252" />
-                      <circle cx="2" cy="9" r="2" fill="#525252" />
-                      <circle cx="2" cy="16" r="2" fill="#525252" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="w-full mb-5">
-              <div
-                class="task bg-background-light dark:bg-card-dark py-3 px-4 flex items-start w-full border border-neutral-200 relative rounded-xl gap-4"
-              >
-                <span
-                  class="bg-warning w-1 rounded-e-lg h-4/5 py-2 absolute top-1.5 inset-s-0"
-                ></span>
-
-                <input
-                  type="checkbox"
-                  name="task"
-                  id="task-status-chckbox"
-                  class="peer"
-                />
-
-                <div class="grow">
-                  <div
-                    class="flex flex-col md:flex-row gap-1 items-start justify-start"
+                  <p
+                    class="text-xs lg:text-sm text-[#7D7D7F] mt-2 group-has-[input:checked]:hidden"
                   >
-                    <p
-                      class="text-sm font-semibold dark:text-white peer-has-checked:overline"
-                    >
-                      جلسه با مدیران
-                    </p>
-
-                    <span
-                      class="py-0.5 px-2 bg-background-danger text-danger rounded-sm text-xs font-bold peer-checked:hidden"
-                    >
-                      بالا
-                    </span>
-                  </div>
-
-                  <p class="text-xs text-[#7D7D7F] mt-2 peer-checked:hidden">
                     جلسه با محسن یگانه و مریم جلالی
                   </p>
                 </div>
 
-                <div>
-                  <button type="button" class="cursor-pointer">
-                    <svg width="4" height="18" viewBox="0 0 4 18" fill="none">
-                      <circle cx="2" cy="2" r="2" fill="#525252" />
-                      <circle cx="2" cy="9" r="2" fill="#525252" />
-                      <circle cx="2" cy="16" r="2" fill="#525252" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="w-full mb-5">
-              <div
-                class="task bg-background-light dark:bg-card-dark py-3 px-4 flex items-start w-full border border-neutral-200 relative rounded-xl gap-4"
-              >
-                <span
-                  class="bg-warning w-1 rounded-e-lg h-4/5 py-2 absolute top-1.5 inset-s-0"
-                ></span>
-
-                <input
-                  type="checkbox"
-                  name="task"
-                  id="task-status-chckbox"
-                  class="peer"
-                />
-
-                <div class="grow">
-                  <div
-                    class="flex flex-col md:flex-row gap-1 items-start justify-start"
+                <button
+                  type="button"
+                  class="cursor-pointer text-[#525252] dark:text-white"
+                >
+                  <svg
+                    width="4"
+                    height="18"
+                    viewBox="0 0 4 18"
+                    fill="none"
+                    class="fill-current"
                   >
-                    <p
-                      class="text-sm font-semibold dark:text-white peer-has-checked:overline"
-                    >
-                      جلسه با مدیران
-                    </p>
-
-                    <span
-                      class="py-0.5 px-2 bg-background-danger text-danger rounded-sm text-xs font-bold peer-checked:hidden"
-                    >
-                      بالا
-                    </span>
-                  </div>
-
-                  <p class="text-xs text-[#7D7D7F] mt-2 peer-checked:hidden">
-                    جلسه با محسن یگانه و مریم جلالی
-                  </p>
-                </div>
-
-                <div>
-                  <button type="button" class="cursor-pointer">
-                    <svg width="4" height="18" viewBox="0 0 4 18" fill="none">
-                      <circle cx="2" cy="2" r="2" fill="#525252" />
-                      <circle cx="2" cy="9" r="2" fill="#525252" />
-                      <circle cx="2" cy="16" r="2" fill="#525252" />
-                    </svg>
-                  </button>
-                </div>
+                    <circle cx="2" cy="2" r="2" />
+                    <circle cx="2" cy="9" r="2" />
+                    <circle cx="2" cy="16" r="2" />
+                  </svg>
+                </button>
               </div>
             </div>
           </section>
           <!-- TASK SECTION -->
 
           <!-- COMPLETED TASK SECTION -->
+          <section class="w-full mt-10 mb-5 px-4">
+            <h2
+              class="lg:text-xl font-extrabold text-[#242424] dark:text-[#FFFFFF]"
+            >
+              تسک‌های انجام شده
+            </h2>
+            <p
+              class="text-xs mt-1 lg:text-sm font-normal lg:font-extrabold text-[#696969] dark:text-[#848890] farsi_digits"
+            >
+              1 تسک انجام شده
+            </p>
+          </section>
+          <section class="w-full px-4">
+            <div class="w-full">
+              <div class="task group">
+                <span
+                  class="bg-danger w-1 rounded-e-lg h-[80%] absolute top-1/2 -translate-y-1/2 inset-s-0"
+                ></span>
+
+                <label for="task-status-chckbox-comleted">
+                  <input
+                    type="checkbox"
+                    name="task"
+                    id="task-status-chckbox-comleted"
+                    class="cursor-pointer hidden"
+                    checked
+                  />
+
+                  <div
+                    class="w-5 h-5 border rounded relative border-[#CCCCCC] group-has-[input:checked]:bg-primary-light group-has-[input:checked]:border-none cursor-pointer"
+                  >
+                    <span
+                      class="absolute inset-0 hidden items-center justify-center group-has-[input:checked]:flex"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="3"
+                        stroke="currentColor"
+                        class="size-3 stroke-white"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="m4.5 12.75 6 6 9-13.5"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </label>
+
+                <div class="grow">
+                  <div
+                    class="flex flex-col md:flex-row gap-2 items-start justify-start"
+                  >
+                    <p
+                      class="text-sm lg:text-base font-semibold dark:text-white group-has-[input:checked]:line-through"
+                    >
+                      جلسه با مدیران
+                    </p>
+
+                    <span
+                      class="badge badge-danger group-has-[input:checked]:hidden"
+                    >
+                      بالا
+                    </span>
+                  </div>
+
+                  <p
+                    class="text-xs lg:text-sm text-[#7D7D7F] mt-2 group-has-[input:checked]:hidden"
+                  >
+                    جلسه با محسن یگانه و مریم جلالی
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  class="cursor-pointer text-[#525252] dark:text-white"
+                >
+                  <svg
+                    width="4"
+                    height="18"
+                    viewBox="0 0 4 18"
+                    fill="none"
+                    class="fill-current"
+                  >
+                    <circle cx="2" cy="2" r="2" />
+                    <circle cx="2" cy="9" r="2" />
+                    <circle cx="2" cy="16" r="2" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </section>
           <!-- COMPLETED TASK SECTION -->
         </div>
       </section>
       <!-- Content -->
     </main>
-    <script src="./build/app.js"></script>
+    <script type="module" src="./build/app.js"></script>
   </body>
 </html>

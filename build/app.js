@@ -1,28 +1,14 @@
+import { toggleSidebar } from "./modules/sidebar/toggleSidebar.js";
+import { toggleTheme } from "./modules/theme/toggleTheme.js";
+import { currentDate } from "./modules/date/currentDate.js";
+
 // toggle sidebar
-const menuBtn = document.getElementById("menu-btn");
-const sidebar = document.getElementById("sidebar");
-const overlay = document.getElementById("sidebar-overlay");
-const closeBtn = document.getElementById("close-sidebar-btn");
-
-menuBtn.addEventListener("click", () => {
-  sidebar.classList.remove("translate-x-full");
-  overlay.classList.remove("opacity-0", "invisible");
-
-  sidebar.classList.add("translate-x-0");
-  overlay.classList.add("opacity-100", "visible");
-});
-
-closeBtn.addEventListener("click", closeSidebar);
-
-overlay.addEventListener("click", closeSidebar);
-
-function closeSidebar() {
-  sidebar.classList.add("translate-x-full");
-  overlay.classList.add("opacity-0", "invisible");
-
-  sidebar.classList.remove("translate-x-0");
-  overlay.classList.remove("opacity-100", "visible");
-}
+toggleSidebar({
+  menuBtn: document.getElementById("menu-btn"),
+  sidebar: document.getElementById("sidebar"),
+  overlay: document.getElementById("sidebar-overlay"),
+  closeBtn: document.getElementById("close-sidebar-btn"),
+}).init();
 
 // theme toggle
 const lightBtn = document.getElementById("light-btn");
@@ -90,4 +76,14 @@ const taskForm = document.getElementById("task-form-open");
 openTaskFormBtn.addEventListener("click", () => {
   taskForm.classList.remove("hidden");
   openTaskFormBtn.classList.add("hidden");
+});
+toggleTheme({
+  lightBtn: document.getElementById("light-btn"),
+  darkBtn: document.getElementById("dark-btn"),
+}).init();
+
+// current date
+currentDate({
+  headerEl: document.getElementById("user-profile-current-date"),
+  sidebarEl: document.getElementById("sidebar-user-profile-current-date"),
 });
