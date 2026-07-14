@@ -1,7 +1,7 @@
 import { toggleSidebar } from "./modules/sidebar/toggleSidebar.js";
 import { toggleTheme } from "./modules/theme/toggleTheme.js";
 import { currentDate } from "./modules/date/currentDate.js";
-import { renderTaskForm } from "./components/tasks/taskForm.js";
+import { taskForm } from "./modules/tasks/taskForm.js";
 
 // toggle sidebar
 toggleSidebar({
@@ -31,6 +31,16 @@ createTaskBtn.addEventListener("click", () => {
   if (document.querySelector("#task-form")) return;
   taskBtnSection.classList.add("hidden");
 
-  const taskForm = renderTaskForm({ mode: "create" });
-  taskBtnSection.after(taskForm);
+  taskBtnSection.after(
+    taskForm({
+      mode: "create",
+      onCloseForm(form) {
+        form.remove();
+        taskBtnSection.classList.remove("hidden");
+      },
+      onSubmitForm(data) {
+        // TODO: implement task create / update
+      },
+    }),
+  );
 });
