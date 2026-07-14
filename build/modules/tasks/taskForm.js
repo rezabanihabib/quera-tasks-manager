@@ -109,7 +109,7 @@ function renderTaskForm({ mode = "create", task = null }) {
                     </button>
                     <button
                         type="submit"
-                        class="py-2.5 px-4 bg-primary-light dark:bg-primary-dark text-white rounded-md font-semibold text-xs cursor-pointer"
+                        class="py-2.5 px-4 bg-primary-light dark:bg-primary-dark text-white rounded-md font-semibold text-xs cursor-pointer disabled:opacity-70 disabled:cursor-auto"
                     >
                         ${mode === "edit" ? "ویرایش تسک" : "اضافه کردن تسک"}
                     </button>
@@ -146,9 +146,11 @@ function selectTag(form) {
 
   radios.forEach((radio) => {
     radio.addEventListener("change", () => {
+      if (radio.checked) {
+        tagsContainer.classList.replace("flex", "hidden");
+        tagsBtn.classList.add("hidden");
+      }
       renderSelectedTag(outputContainer, radio, tagsContainer, tagsBtn);
-      tagsContainer.classList.replace("flex", "hidden");
-      tagsBtn.classList.add("hidden");
     });
   });
 }
@@ -193,9 +195,37 @@ function renderSelectedTag(container, radio, tagsContainer, tagsBtn) {
     container.innerHTML = "";
     tagsContainer.classList.replace("hidden", "flex");
     tagsBtn.classList.remove("hidden");
+    radio.dispatchEvent(new Event("change"));
   });
 
   container.appendChild(span);
+}
+
+// validate form
+function validateForm(form) {
+  const title = form.querySelector("#task-title-input");
+  const desc = form.querySelector("#task-desc-input");
+  const radios = form.querySelectorAll('input[name="priority"]');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  function isValid() {
+    const titleValid = title.value.trim().length > 0;
+    const descValid = desc.value.trim().length > 0;
+    const tagValid = [...radios].some((r) => r.checked);
+
+    return titleValid && descValid && tagValid;
+  }
+
+  function updateButton() {
+    console.log(isValid());
+    submitBtn.disabled = !isValid();
+  }
+
+  title.addEventListener("input", updateButton);
+  desc.addEventListener("input", updateButton);
+  radios.forEach((r) => r.addEventListener("change", updateButton));
+
+  updateButton();
 }
 
 export function taskForm({
@@ -211,6 +241,9 @@ export function taskForm({
 
   //select tag
   selectTag(form);
+
+  // validate form
+  validateForm(form);
 
   // submit
   form.addEventListener("submit", (e) => {
