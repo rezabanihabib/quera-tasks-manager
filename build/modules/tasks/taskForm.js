@@ -162,6 +162,13 @@ export function taskForm({
 }) {
   const form = renderTaskForm({ mode, task });
 
+
+  // submit
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    onSubmitForm?.(form, { mode, task });
+  });
+
   //close
   form.querySelector("#tasks-form-close-btn").addEventListener("click", () => {
     onCloseForm?.(form);

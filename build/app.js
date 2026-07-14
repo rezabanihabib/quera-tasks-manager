@@ -38,6 +38,7 @@ createTaskBtn.addEventListener("click", () => {
         form.remove();
         taskBtnSection.classList.remove("hidden");
       },
+      onSubmitForm(form) {},
     }),
   );
 });
