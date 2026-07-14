@@ -236,6 +236,17 @@ export function taskForm({
 }) {
   const form = renderTaskForm({ mode, task });
 
+  // select task tag
+  if (mode === "edit" && task?.priority) {
+    const selectedRadio = form.querySelector(
+      `input[name="priority"][value="${task.priority}"]`,
+    );
+    if (selectedRadio) {
+      selectedRadio.checked = true;
+      selectedRadio.dispatchEvent(new Event("change"));
+    }
+  }
+
   // toggle tags
   toggleTags(form);
 
@@ -245,10 +256,29 @@ export function taskForm({
   // validate form
   validateForm(form);
 
-  // submit
+  // submit form
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    onSubmitForm?.(form, { mode, task });
+    const title = form.querySelector("#task-title-input");
+    const desc = form.querySelector("#task-desc-input");
+    const radios = form.querySelectorAll('input[name="priority"]');
+
+    const titleVal = title.value.trim();
+    const descVal = desc.value.trim();
+    const selectedTag = [...radios].find((r) => r.checked);
+
+    if (!titleVal || !descVal || !selectedTag) {
+      return;
+    }
+
+    const data = {
+      title: titleVal,
+      description: descVal,
+      tag: selectedTag.value,
+    };
+
+    onSubmitForm(data);
+    onCloseForm?.(form);
   });
 
   //close
