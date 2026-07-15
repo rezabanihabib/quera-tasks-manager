@@ -1,5 +1,6 @@
 import { taskForm } from "./taskform.js";
 import { renderTask } from "./renderTask.js";
+import { renderTaskTitle } from "./renderTaskTitle.js";
 
 const STORAGE_KEY = "tasks";
 const LAST_ID_KEY = "last-task-id";
@@ -31,6 +32,12 @@ function getTasks() {
   } catch {
     return [];
   }
+}
+
+// get task lenght
+function getTaskLength() {
+  const tasks = getTasks();
+  return tasks.length;
 }
 
 // save all tasks to storage
@@ -109,7 +116,7 @@ function toggleTaskComplete(id) {
   return tasks[index];
 }
 
-// dropdown باز/بسته شدن + هندل کردن ویرایش و حذف
+// set actions
 function wireTaskItem(itemEl, task, { container, onCloseAllDropdowns }) {
   const moreBtn = itemEl.querySelector("#task-more-btn");
   const dropdown = itemEl.querySelector("#task-dropdown");
