@@ -6,7 +6,7 @@
 
 ## 🚀 Demo
 
-- 🌐 Live Demo: https://your-project-url.com
+- 🌐 Live Demo: https://quera-tasks-manager.vercel.app/
 - 💻 GitHub Repository: https://github.com/rezabanihabib/quera-tasks-manager
 
 ---
