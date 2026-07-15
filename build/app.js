@@ -2,6 +2,7 @@ import { toggleSidebar } from "./modules/sidebar/toggleSidebar.js";
 import { toggleTheme } from "./modules/theme/toggleTheme.js";
 import { currentDate } from "./modules/date/currentDate.js";
 import { taskForm } from "./modules/tasks/taskForm.js";
+import { addTaskToList, renderTaskList } from "./modules/tasks/task.js";
 
 // toggle sidebar
 toggleSidebar({
@@ -39,8 +40,11 @@ createTaskBtn.addEventListener("click", () => {
         taskBtnSection.classList.remove("hidden");
       },
       onSubmitForm(data) {
-        // TODO: implement task create / update
+        addTaskToList("#tasks-section", data);
+        taskBtnSection.classList.remove("hidden");
       },
     }),
   );
 });
+
+renderTaskList("#tasks-section");
