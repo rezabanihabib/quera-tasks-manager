@@ -29,7 +29,9 @@ const createTaskBtn = document.getElementById("create-task-btn-el");
 const taskBtnSection = document.getElementById("create-task-btn-section");
 
 createTaskBtn.addEventListener("click", () => {
-  if (document.querySelector("#task-form")) return;
+  if (document.querySelector("#task-form")) {
+    document.querySelector("#task-form").remove();
+  }
   taskBtnSection.classList.add("hidden");
 
   taskBtnSection.after(
