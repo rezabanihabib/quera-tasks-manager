@@ -217,7 +217,6 @@ function validateForm(form) {
   }
 
   function updateButton() {
-    console.log(isValid());
     submitBtn.disabled = !isValid();
   }
 
@@ -261,24 +260,26 @@ export function taskForm({
     e.preventDefault();
     const title = form.querySelector("#task-title-input");
     const desc = form.querySelector("#task-desc-input");
-    const radios = form.querySelectorAll('input[name="priority"]');
+    const priority = form.querySelector(
+      'input[name="priority"]:checked',
+    )?.value;
 
     const titleVal = title.value.trim();
     const descVal = desc.value.trim();
-    const selectedTag = [...radios].find((r) => r.checked);
 
-    if (!titleVal || !descVal || !selectedTag) {
+    if (!titleVal || !descVal || !priority) {
       return;
     }
 
     const data = {
       title: titleVal,
       description: descVal,
-      tag: selectedTag.value,
+      priority,
+      ...(mode === "edit" && task ? { id: task.id } : {}),
     };
 
     onSubmitForm(data);
-    onCloseForm?.(form);
+    form.remove();
   });
 
   //close
