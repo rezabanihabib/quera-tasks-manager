@@ -2,7 +2,7 @@ import { toggleSidebar } from "./modules/sidebar/toggleSidebar.js";
 import { toggleTheme } from "./modules/theme/toggleTheme.js";
 import { currentDate } from "./modules/date/currentDate.js";
 import { taskForm } from "./modules/tasks/taskForm.js";
-import { addTaskToList, renderTaskList } from "./modules/tasks/task.js";
+import { addTaskToList, renderTaskList } from "./modules/tasks/taskList.js";
 
 // toggle sidebar
 toggleSidebar({
