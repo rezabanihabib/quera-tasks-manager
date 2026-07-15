@@ -7,7 +7,7 @@ export function renderTask(task, PRIORITY_MAP) {
 
   wrapper.innerHTML = `
     <div class="task group relative">
-      <span class="${priority.class} w-1 rounded-e-lg h-[80%] absolute top-1/2 -translate-y-1/2 inset-s-0"></span>
+      <span class="${priority.spanClass} w-1 rounded-e-lg h-[80%] absolute top-1/2 -translate-y-1/2 inset-s-0"></span>
 
       <label for="task-status-chckbox-${task.id}">
         <input
@@ -42,7 +42,7 @@ export function renderTask(task, PRIORITY_MAP) {
             ${task.title}
           </p>
 
-          <span class="badge ${priority.class} group-has-[input:checked]:hidden">
+          <span class="badge ${priority.badgeClass} group-has-[input:checked]:hidden">
             ${priority.text}
           </span>
         </div>

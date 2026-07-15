@@ -1,4 +1,4 @@
-export function renderTaskTitle({title, count}) {
+export function renderTaskTitle({ title, count, label = "تسک انجام شده" }) {
   const wrapper = document.createElement("section");
   wrapper.className = "w-full mt-10 mb-5 px-4";
 
@@ -11,7 +11,7 @@ export function renderTaskTitle({title, count}) {
             <p
               class="text-xs mt-1 lg:text-sm font-normal lg:font-extrabold text-[#696969] dark:text-[#848890] farsi_digits"
             >
-              ${count} تسک انجام شده
+              ${count ? count : ""} ${label}
             </p>
   `;
 
